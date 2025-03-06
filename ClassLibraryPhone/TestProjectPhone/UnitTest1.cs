@@ -24,6 +24,7 @@ namespace TestProjectPhone
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))] // Przestarza³y sposób, lepiej u¿yæ Assert.ThrowsException
         public void Konstruktor_ZaKrotkiNumerTelefonu_ArgumentException()
         {
             // Arrange
@@ -31,11 +32,12 @@ namespace TestProjectPhone
             var numer = "12345678";
 
             // Act
+            var telefon = new Phone(wlasciciel, numer);
             // Assert
-            Assert.ThrowsException<ArgumentException>(() => new Phone(wlasciciel, numer));
-
-
+            //Assert.ThrowsException<ArgumentException>(() => new Phone(wlasciciel, numer));
 
         }
+
+
     }
 }
